@@ -1,25 +1,16 @@
 <?php
 
 /* Security Stuff*/
-    function check_input($data, $problem='')
-    {
-        $data = strip_tags($data);
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        $data = nl2br($data);
-    if ($problem && strlen($data) == 0)
-    {
-        die($problem);
-    }
-        return $data;
-    }
+     check_input($data, $problem='')
+{
+return $data;
+}
     
-    $FullName = check_input($_POST['companyname']);
-    $Comments = check_input($_POST['Comments']);
-    $Phone = check_input($_POST['phonenumber']);
-    $Email = check_input($_POST['email']);
-    $Contact_name = check_input($_POST['yourname']);
+    $FullName = check_input($_GET['companyname']);
+    $Comments = check_input($_GET['Comments']);
+    $Phone = check_input($_GET['phonenumber']);
+    $Email = check_input($_GET['email']);
+    $Contact_name = check_input($_GET['yourname']);
          
     /* Set e-mail recipient */
     $myemail  = "zoey@opssales.net";
@@ -29,7 +20,7 @@
     $message = "Hello!
         You've got a new contact form message!
         
-       Company Name: $Full_name
+       Company Name: $FullName
                 
         Contact Name: $Contact_name   
         
